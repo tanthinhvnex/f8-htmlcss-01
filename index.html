@@ -14,10 +14,16 @@
     </head>
     <body>
         <!-- Thẻ main mang ý nghĩa chứa bố cục của trang -->
-        <main>
+        <main style="height: 2000px">
             <!-- Header -->
+            <!-- class header là cái trang đầu trang -->
             <header class="header">
+                <!-- class content là class dùng chung cho các trang -->
+                <!-- class content dùng để giới hạn độ rộng của trang web -->
                 <div class="content">
+                    <!-- header chứa 2 phần chính, dòng đầu tiên là navbar, còn lại là hero -->
+                    <!-- navbar chứa logo Besnik, list options, sign in/sign up -->
+                    <!-- hero chứa phần còn lại -->
                     <nav class="navbar">
                         <!-- Logo -->
                         <img src="./assets/img/logo.png" alt="Besnik." />
@@ -40,10 +46,61 @@
                             </li>
                         </ul>
                         <!-- Action -->
-                        <div class="actions">ACTIONS</div>
+                        <div class="actions">
+                            <a href="#!" class="action-link">Sign in</a>
+                            <!-- class btn là class nút dùng chung -->
+                            <!-- action-btn là custome riêng cho một nút -->
+                            <a href="#!" class="btn action-btn">Sign up</a>
+                        </div>
                     </nav>
+
+                    <div class="hero">
+                        <!-- hero có 2 phần chính info (bên trái) + hero-img (bên phải) -->
+                        <div class="info">
+                            <p class="sub-title">Welcome to Besnik Agency</p>
+                            <h1 class="title">Discover a place you'll love to live.</h1>
+                            <p class="desc">
+                                Get the best real estate deals first, before they hit the mass market! hot foreclosure
+                                deals with one simple search.
+                            </p>
+                            <!-- cta: call to action -->
+                            <a href="" class="btn hero-cta">More About Us</a>
+                        </div>
+                        <!-- Ảnh đi kèm với tiêu đề -->
+                        <!-- Thì alt chính là tiêu đề -->
+                        <img
+                            src="./assets/img/hero-img.svg"
+                            alt="Discover a place you'll love to live."
+                            class="hero-img" />
+                    </div>
                 </div>
             </header>
+
+            <!-- Client -->
+            <div class="clients">
+                <div class="content">
+                    <div class="row">
+                        <!-- Logo -->
+                        <img src="./assets/img/logo.png" alt="Besnik." />
+                        <div class="stars">
+                            <img src="./assets/img/star.svg" alt="star" />
+                        </div>
+                    </div>
+                    <!-- Phía trên đã có row, việc đặt trùng tên như này -->
+                    <!-- đỡ phải css lần 2 flex space between -->
+                    <div class="row row-desc">
+                        <p class="desc">More than 45,000+ companies trust besnik</p>
+                        <p class="desc">5 Star Ratings (2k+ Review)</p>
+                    </div>
+                    <div class="images">
+                        <img src="./assets/img/client-1.svg" alt="MeUndies" />
+                        <img src="./assets/img/client-2.svg" alt="Slack" />
+                        <img src="./assets/img/client-3.svg" alt="Amazon" />
+                        <img src="./assets/img/client-4.svg" alt="WooCommerce" />
+                        <img src="./assets/img/client-5.svg" alt="Sitepoint" />
+                    </div>
+                </div>
+            </div>
         </main>
     </body>
 </html>

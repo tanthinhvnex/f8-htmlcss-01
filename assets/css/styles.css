@@ -1,6 +1,9 @@
 * {
     box-sizing: border-box;
 }
+:root {
+    --primary-color: #0f1b4c;
+}
 html {
     font-size: 62.5%;
 }
@@ -14,15 +17,50 @@ a {
     text-decoration: none;
 }
 
+.btn {
+    /* Để tạo chiều cao cho nút bấm */
+    /* Hạn chế dùng height vì sẽ tạo ra nhiều rắc rối */
+    /* Để tạo độ cao thì dùng cho nút thì dùng padding */
+    /* vậy thì dùng padding sao cho đạt được chiều cao như mong muốn ? */
+    /* f12 thuộc tính padding, cho chạy số, nhìn kích thước thay đổi là được */
+    /* do thẻ a là thẻ inline nên min width không có tác dụng*/
+    /* cần phải chuyển sang loại display: inline-block */
+    display: inline-block;
+    min-width: 98px;
+    padding: 18px 16px;
+    border-radius: 8px;
+    background: var(--primary-color);
+    font-weight: 500;
+    font-size: 1.4rem;
+    text-align: center;
+    color: #fff;
+}
+
+.btn:hover {
+    /* Tạo độ mờ khi hover vào nút */
+    opacity: 0.9;
+}
+
 .content {
     /* Thẻ content này dùng để định hình độ rộng nội dung của page là 1110px */
     /* Thẻ được căn giữa */
     width: 1110px;
+    /* Khi trình duyệt có độ rộng lớn hơn 1110px */
+    /* thì giao diện không xuất hiện vấn đề */
+    /* ngược lại thì sẽ bị đè mất nội dung */
+    /* nên cần thêm thuộc tính max-width: 100% */
+    /* để khi màn hình có px nhỏ hơn thì sẽ tương thích lại màn hình */
+    /* nhưng để 100% thì bị sát mép lề, nên dùng calc tạo khoảng trống */
+    /* calc(100% - 48px) -> trái phải mỗi bên dư 24px */
+    max-width: calc(100% - 48px);
+    /* Dùng để căn content vào giữa */
     margin-left: auto;
     margin-right: auto;
 }
 /* Header */
 .header {
+    /* position relative để định vị hero img */
+    position: relative;
     background: #e6f0ff;
     /* Để trang header này chiếm full màn hình */
     height: 100vh;
@@ -30,6 +68,14 @@ a {
 
 .navbar {
     display: flex;
+    align-items: center;
+    /* Chọn thành phần cao nhất trong bản thiết kế để căn chỉnh px */
+    /* Ta thấy phần sign in/ up là cao nhất */
+    /* Nên chọn sign in/up lấy 38px */
+    /* nếu dùng margin sẽ bị margin collapse */
+    /* tức là phần phía trên sẽ bị hở 38px màu trắng */
+    /* Để có đúng màu nền thì dùng padding top*/
+    padding-top: 38px;
 }
 
 .navbar ul {
@@ -40,7 +86,8 @@ a {
     /* dễ dàng canh chỉnh sao cho giống với thiết kế */
     display: flex;
     /* căn chỉnh các phần tử theo đường nằm ngang trung tâm */
-    align-items: center;
+
+    margin-left: 50px;
 }
 
 .navbar .actions {
@@ -57,4 +104,117 @@ a {
     /* Nhưng nếu như vậy thì vùng bấm phím khá nhỏ*/
     /* nên mình thêm 8px cho dễ bấm hơn */
     padding: 8px 14px;
+}
+
+.navbar ul a:hover {
+    text-decoration: underline;
+}
+
+.navbar .action-link {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.navbar .action-btn {
+    padding: 13px 16px;
+    margin-left: 18px;
+}
+
+.hero {
+    /* tạo khoảng cách so với navbar */
+    /* không đo với logo besnik */
+    /* mà so với sign up */
+    /* vì sign up gần hơn */
+    margin-top: 130px;
+}
+
+.hero .info {
+    /* content độ rộng 1110px */
+    /* figma cho ta thấy info này 559px */
+    /* không đặt width tuyệt đối 559px */
+    /* vì màn hình to bé khác nhau */
+    /* tính 559px chiếm bao nhiêu phần trăm trong 1110px */
+    /* ra gần 51% */
+    /* khi tạo độ rộng như này sẽ giúp cho xuống dòng của chữ */
+    /* giống với bản thiết kế */
+    width: 51%;
+}
+.hero .sub-title {
+    color: #687690;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    line-height: 1.5;
+}
+
+.hero .title {
+    margin-top: 8px;
+    color: #000336;
+    font-size: 6.4rem;
+    font-weight: 700;
+    line-height: 1.185;
+}
+
+.hero .desc {
+    margin-top: 30px;
+    color: #5a6473;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 1.78;
+}
+
+.hero-cta {
+    /* không đặt cố định là width */
+    /* vì có thể sau này từ trong nút sẽ được đổi */
+    /* sang một từ dài hơn */
+    min-width: 170px;
+    margin-top: 40px;
+}
+
+.hero-img {
+    position: absolute;
+    /* không đặt cố định right 65px */
+    /* vì màn hình to thì ngôi nhà vẫn giữ nguyên 65px so với bên phải */
+    /* sẽ bị rời rạc với nội dung */
+    /* nên dùng hàm calc để tính */
+    /* 100vw - 1110px(độ rộng content) -> khoảng cách 2 bên */
+    /* chia 2 để được khoảng cách 1 bên */
+    /* ngôi nhà bị lệch sang bên phải so với nút sign up */
+    /* thấy nút sign up cách lề phải 165px */
+    /* phần chân ngôi nhà cách lề phải 65px */
+    /* vậy ngôi nhà lệch so với sign up là 100px */
+    /* nên ta có right như sau */
+    right: calc((100vw - 1110px) / 2 - 100px);
+    bottom: 0;
+}
+
+/* ================ Client ============ */
+.clients {
+    margin-top: 79px;
+    padding: 43px 0 41px;
+}
+
+.clients .row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.clients .desc {
+    color: #7d8589;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.25;
+}
+
+.clients .row-desc {
+    margin-top: 23px;
+}
+
+.clients .images {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 96px;
 }
