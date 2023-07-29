@@ -13,6 +13,15 @@ body {
 }
 /* Common */
 
+/* Dùng để xử lí khi bị tràn nội dung */
+.line-clamp {
+    display: -webkit-box;
+    /* nếu không khai báo giá trị thì giá trị mặc định là 2 */
+    -webkit-line-clamp: var(--line-clamp, 2);
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 a {
     text-decoration: none;
 }
@@ -28,7 +37,7 @@ a {
     display: inline-block;
     min-width: 98px;
     padding: 18px 16px;
-    border-radius: 8px;
+    border-radius: 12px;
     background: var(--primary-color);
     font-weight: 500;
     font-size: 1.4rem;
@@ -117,6 +126,7 @@ a {
 }
 
 .navbar .action-btn {
+    border-radius: 8px;
     padding: 13px 16px;
     margin-left: 18px;
 }
@@ -217,4 +227,211 @@ a {
     justify-content: space-between;
     align-items: center;
     margin-top: 96px;
+}
+
+.guides {
+    margin-top: 40px;
+    padding: 79px 0px;
+}
+
+.guides .sub-title {
+    position: relative;
+    /* Thay vì dùng flex để căn chỉnh vào giữa */
+    /* Do đây là chữ dùng text-align: center sẽ nhanh hơn */
+    text-align: center;
+    color: #000339;
+    font-size: 3.5rem;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.guides .sub-title::before {
+    position: absolute;
+    top: -10px;
+    /* Bắt đầu từ ngay giữa */
+    /* Nên sẽ hơi lệch phải một xíu */
+    left: 50%;
+    /* Dùng transform để dịch chuyển ngược lại 50% so với kích thước */
+    transform: translateX(-50%);
+    content: "";
+    /* Để đặt kích thước */
+    display: inline-block;
+    width: 41px;
+    height: 4px;
+    background: #000339;
+    border-radius: 12px;
+}
+
+.guides .desc {
+    width: 420px;
+    /* Để tránh trường hợp trình duyệt thu nhỏ lại */
+    /* không bị xuất hiện thanh cuộn ngang */
+    /* Dùng max-width */
+    max-width: 100%;
+    /* Để căn được nội dung ra ngay giữa */
+    margin: 20px auto 0;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.88;
+    text-align: center;
+    color: #5a6473;
+}
+
+/* không cần đặt .guides .list-guide vì trong .list-guide đã có guide */
+.list-guide {
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+    /* lúc này nếu dùng các thuộc tính sẵn có của justify-content */
+    /* thì không thể được như bản thiết kế */
+    /* vì vậy dùng center sau đó dùng thêm margin cho các thẻ li */
+}
+
+.guide-item {
+    margin: 0 70px;
+    /* không chỉ có văn bản mới dùng text align */
+    /* các đối tượng khác miễn là inline đều dùng text align được */
+    /* Đối với các ảnh svg thì khi xuất ra đã chuẩn kích thước so với gốc */
+    /* nên svg cần css thì chỉ là về vị trí thôi */
+    text-align: center;
+}
+
+.guide-item .title {
+    margin-top: 26px;
+    color: #3b3c45;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.guide-item .link {
+    /* muốn dùng margin-top thì phải cài đặt display */
+    display: inline-block;
+    margin-top: 10px;
+    color: #0689ff;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.guide-item .arrow {
+    margin-left: 6px;
+}
+
+.guide-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+/* ghi đè lên btn trước đó */
+.guides-cta .btn {
+    min-width: 170px;
+}
+
+.featured {
+    margin-top: 41px;
+    background-color: #f5fafe;
+    padding: 110px 0;
+}
+
+.featured .sub-title {
+    color: #000339;
+    font-size: 3.5rem;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.featured .row {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.featured .desc {
+    color: #5a6473;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.88;
+}
+.featured .link {
+    display: flex;
+    align-items: center;
+    color: #0689ff;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.featured .arrow {
+    margin-left: 6px;
+}
+
+.featured .list {
+    display: flex;
+    /* Tạo ra khoảng cách giữa các item */
+    gap: 30px;
+    margin-top: 70px;
+}
+
+.featured .item {
+    flex: 1;
+    background-color: #fff;
+    /* Mặc dù đã border radius thẻ cha item */
+    /* ở phía dưới thumb vẫn border */
+    /* vì thẻ con có quyền bự hơn thẻ cha */
+    /* nên cần border radius cả thẻ thumb */
+    /* hoặc có thể dùng overflow: hidden thẻ cha */
+    /* ưu tiên border radius thêm lần nữa */
+    /* dùng overflow nếu phát sinh thêm khó giải quyết hơn */
+    border-radius: 12px;
+}
+
+.featured .item .thumb {
+    width: 100%;
+    height: 227px;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.featured .item .body {
+    padding: 17px 20px 22px;
+}
+
+.featured .item .title a {
+    color: #000339;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.featured .item .desc {
+    --line-clamp: 3;
+    margin-top: 4px;
+    color: #a3a6ab;
+    font-size: 1.4rem;
+    font-weight: 500;
+    /* Nếu người dùng nhập một đoạn dài mà không có dấu cách */
+    /* thì giao diện sẽ bị kéo dài ra */
+    word-break: break-all;
+}
+
+.featured .item .info {
+    display: flex;
+    align-items: center;
+    margin-top: 21px;
+}
+.featured .item .icon {
+    margin-left: 23px;
+}
+
+.featured .item .icon:first-child {
+    margin-left: 0;
+}
+
+.featured .item .label {
+    margin-left: 8px;
+    color: #4d4d52;
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
 }
