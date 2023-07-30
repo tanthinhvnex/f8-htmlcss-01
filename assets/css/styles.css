@@ -226,7 +226,26 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 96px;
+    margin-top: 70px;
+}
+
+.clients .images a {
+    display: flex;
+    align-items: center;
+    /* không dùng width mà dùng padding */
+    /* vì logo có độ dài ngắn khác nhau */
+    /* nếu dùng padding trên dưới thì chiều cao không đều */
+    /* trông khá lệch */
+    /* nên chỉ padding trái phải, không padding trên dưới */
+    padding: 0 42px;
+    /* để có chiều cao đồng đều */
+    /* dùng height */
+    height: 90px;
+    border-radius: 12px;
+}
+
+.clients .images a:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .guides {
