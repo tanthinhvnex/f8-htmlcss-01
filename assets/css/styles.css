@@ -4,6 +4,18 @@
 :root {
     --primary-color: #0f1b4c;
 }
+
+html,
+body {
+    /* Một số trình duyệt thanh cuộn sẽ xuất hiện trên thẻ html */
+    /* một số lại xuất hiện trên thẻ body */
+    /* nên để chắc chắn việc cuộn trở nên mượt mà */
+    /* thì css cho cả html và thẻ body */
+    /* Khi nhấn vào 1 mục trên navbar, sẽ tự chuyển di chuyển tới */
+    /* để cho việc di tới tới mượt mà */
+    /* sử dụng scroll-behavior */
+    scroll-behavior: smooth;
+}
 html {
     font-size: 62.5%;
 }
@@ -67,12 +79,27 @@ a {
     margin-right: auto;
 }
 /* Header */
-.header {
+.fixed-header {
+    background: #e6f0ff;
+    padding-top: 26px;
+    position: sticky;
+    top: -26px;
+    z-index: 1;
+}
+.hero-wrap {
     /* position relative để định vị hero img */
     position: relative;
     background: #e6f0ff;
     /* Để trang header này chiếm full màn hình */
-    height: 100vh;
+    /* Do navbar đã chiếm 90px */
+    height: calc(100vh - 90px);
+    display: flex;
+    /* Không căn chữ theo px như bản thiết kế */
+    /* mà đặt chữ nằm ngay giữa */
+    /* vì màn hình cho nhỏ khác nhau */
+    /* nếu đặt theo px thì khi màn hình lớn quá chữ sẽ bị kéo lên trên */
+    justify-content: center;
+    flex-direction: column;
 }
 
 .navbar {
@@ -84,7 +111,10 @@ a {
     /* nếu dùng margin sẽ bị margin collapse */
     /* tức là phần phía trên sẽ bị hở 38px màu trắng */
     /* Để có đúng màu nền thì dùng padding top*/
-    padding-top: 38px;
+    /* padding-top: 38px; */
+    /* Nhưng khi dùng padding-top: 38px sẽ phát sinh thêm khi neo navbar */
+    /* Khi neo cần phải tạo khoảng padding trên và dưới */
+    padding: 12px 0;
 }
 
 .navbar ul {
@@ -131,15 +161,7 @@ a {
     margin-left: 18px;
 }
 
-.hero {
-    /* tạo khoảng cách so với navbar */
-    /* không đo với logo besnik */
-    /* mà so với sign up */
-    /* vì sign up gần hơn */
-    margin-top: 130px;
-}
-
-.hero .info {
+.hero-wrap .info {
     /* content độ rộng 1110px */
     /* figma cho ta thấy info này 559px */
     /* không đặt width tuyệt đối 559px */
@@ -150,7 +172,7 @@ a {
     /* giống với bản thiết kế */
     width: 51%;
 }
-.hero .sub-title {
+.hero-wrap .sub-title {
     color: #687690;
     font-size: 1.8rem;
     font-style: normal;
@@ -159,7 +181,7 @@ a {
     line-height: 1.5;
 }
 
-.hero .title {
+.hero-wrap .title {
     margin-top: 8px;
     color: #000336;
     font-size: 6.4rem;
@@ -167,7 +189,7 @@ a {
     line-height: 1.185;
 }
 
-.hero .desc {
+.hero-wrap .desc {
     margin-top: 30px;
     color: #5a6473;
     font-size: 1.8rem;
