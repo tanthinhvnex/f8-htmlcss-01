@@ -158,11 +158,76 @@
 }
 /* Mobile */
 @media screen and (max-width: 767.98px) {
+    .hide-on-mobile {
+        display: none;
+    }
     .menu-drawer {
         padding: 40px;
     }
 
     .navbar .actions {
         display: none;
+    }
+
+    .hero-wrap {
+        height: calc(100vh - 80px);
+    }
+    .hero-wrap .title {
+        margin-top: 10px;
+        font-size: 5.2rem;
+    }
+    .hero-wrap .desc {
+        width: 100%;
+    }
+    .clients .images {
+        row-gap: 20px;
+    }
+    .list-guide {
+        flex-direction: column;
+        row-gap: 30px;
+    }
+    .guide-cta {
+        margin-top: 60px;
+    }
+
+    .featured .link {
+        display: none;
+    }
+
+    .featured .list {
+        grid-template-columns: 1fr;
+    }
+
+    .featured .view-all {
+        display: flex;
+        justify-content: center;
+        margin-top: 60px;
+    }
+    .stats .sub-title {
+        width: 100%;
+    }
+    .stats .img-block .image {
+        width: 100%;
+    }
+    .stats-trend {
+        left: 20px;
+    }
+    .stats .row-qty {
+        align-items: center;
+        row-gap: 60px;
+        flex-direction: column;
+    }
+    .subscription .body {
+        height: 300px;
+    }
+    .subscription .info {
+        margin: 0 30px;
+    }
+    .footer .row-top {
+        column-gap: 100px;
+    }
+    .footer .row-bottom {
+        flex-direction: column;
+        row-gap: 30px;
     }
 }

@@ -148,7 +148,7 @@
                 <!-- đỡ phải css lần 2 flex space between -->
                 <div class="row row-desc">
                     <p class="desc">More than 45,000+ companies trust besnik</p>
-                    <p class="desc">5 Star Ratings (2k+ Review)</p>
+                    <p class="desc hide-on-mobile">5 Star Ratings (2k+ Review)</p>
                 </div>
                 <div class="images">
                     <a href="#!">
@@ -210,10 +210,11 @@
         <div class="featured" id="features">
             <div class="content">
                 <header>
-                    <h2 class="sub-title">Featured Properties</h2>
+                    <h2 class="sub-title ">Featured Properties</h2>
                     <div class="row">
-                        <p class="desc">Everything you need to know when you're looking</p>
-                        <a href="#!" class="link"><span>View All Properties</span>
+                        <p class="desc ">Everything you need to know when you're looking</p>
+                        <a href="#!" class="link">
+                            <span>View All Properties</span>
                             <img src="./assets/img/arrow-right.svg" alt="arrow right" class="arrow" /></a>
                     </div>
                 </header>
@@ -290,6 +291,9 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="view-all show-on-mobile">
+                    <a href="#!" class="btn">View All Properties</a>
                 </div>
             </div>
         </div>
@@ -487,6 +491,13 @@
             </div>
         </div>
     </footer>
+    <script>
+        const pcNav = document.querySelector("#pc-nav");
+        const mobileNav = document.querySelector("#mobile-nav");
+
+        // Copy from PC nav -> Mobile nav
+        mobileNav.innerHTML = pcNav.innerHTML;
+    </script>
 </body>
 
 </html>
