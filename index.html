@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
 
 <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>F8 Project 01</title>
-
+    <title>Project 01</title>
+    <!-- Tại sao không dùng đường dẫn tuyệt đối mà dùng đường dẫn tương đối -->
+    <!-- Vì dùng đường dẫn tuyệt đối sẽ cần phải bật máy chủ web (bật live server) -->
+    <!-- Khi không dùng live server mà chỉ cần mở chrome thì dùng tương đối -->
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <!-- Chuyển đổi đuôi font otf sang woff/ woff2 -->
+    <link rel="stylesheet" href="./assets/fonts/stylesheet.css" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <!-- Nhúng font lato -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet" />
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="57x57" href="./assets/favicon/apple-icon-57x57.png" />
     <link rel="apple-touch-icon" sizes="60x60" href="./assets/favicon/apple-icon-60x60.png" />
@@ -22,338 +30,145 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="96x96" href="./assets/favicon/favicon-96x96.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png" />
+    <!-- thêm nữa là vào file .json để sửa lại đường dẫn -->
+    <!-- trong file json này phải dùng đường dẫn tuyệt đối nhé -->
+    <!-- chức năng của file manifest.json -->
+    <!-- khi trang web được lưu bằng điện thoại android -->
+    <!-- thì manifest sẽ chọn ra favicon nào phù hợp -->
+    <!-- để làm biểu tượng đại diện cho trang web -->
     <link rel="manifest" href="./assets/favicon/manifest.json" />
     <meta name="msapplication-TileColor" content="#ffffff" />
+    <!-- nhớ sửa đường dẫn ở phía dưới này nữa nè -->
     <meta name="msapplication-TileImage" content="./assets/favicon/ms-icon-144x144.png" />
     <meta name="theme-color" content="#ffffff" />
-
-    <!-- Reset CSS -->
-    <link rel="stylesheet" href="./assets/css/reset.css" />
-    <link rel="stylesheet" href="./assets/css/responsive.css" />
-
-
-    <!-- Embed fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./assets/fonts/stylesheet.css" />
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="./assets/css/styles.css" />
-    <link rel="stylesheet" href="./assets/css/responsive.css">
 </head>
 
 <body>
-    <!-- PC Header -->
+    <!-- Thẻ main mang ý nghĩa chứa nội dung chính của trang -->
+    <!-- Header -->
+    <!-- class header là thẻ dành cho trang đầu tiên hoặc phần đầu của một trang web -->
+    <!-- header chứa 2 phần chính, dòng đầu tiên là navbar, còn lại là hero -->
+    <!-- navbar chứa logo Besnik, list options, sign in/sign up -->
+
+    <!-- hero chứa phần còn lại -->
     <header class="fixed-header">
         <div class="content">
-            <!-- Navbar -->
             <nav class="navbar">
-                <!-- Tablet/mobile menu -->
-                <label class="toggle-menu" for="menu-checkbox">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
-                        <path fill="currentColor"
-                            d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
-                    </svg>
-                </label>
-
                 <!-- Logo -->
-                <a href="#">
-                    <img class="logo" src="./assets/img/logo.svg" alt="Besnik." />
-                </a>
-
+                <a href="#"><img src="./assets/img/logo.png" alt="Besnik." /></a>
                 <!-- Navigation -->
-                <ul id="pc-nav">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#resources">Resources</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li class="show-on-mobile separate"><a href="#!">Sign in</a></li>
-                    <li class="show-on-mobile"><a href="#!">Sign up</a></li>
+                <ul>
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#service">Service</a>
+                    </li>
+                    <li>
+                        <a href="#features">Features</a>
+                    </li>
+                    <li>
+                        <a href="#resources">Resources</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Contact</a>
+                    </li>
                 </ul>
-
                 <!-- Action -->
                 <div class="actions">
                     <a href="#!" class="action-link">Sign in</a>
+                    <!-- class btn là class nút dùng chung -->
+                    <!-- action-btn là custome riêng cho một nút -->
                     <a href="#!" class="btn action-btn">Sign up</a>
                 </div>
             </nav>
         </div>
     </header>
-
-    <!-- Tablet/mobile Header -->
-    <header class="mobile-header">
-        <input type="checkbox" name="" id="menu-checkbox" class="menu-checkbox" hidden>
-
-        <!-- Overlay -->
-        <label for="menu-checkbox" class="menu-overlay"></label>
-
-        <!-- Menu-content -->
-        <div class="menu-drawer">
-            <a href="#">
-                <img src="./assets/img/logo.svg" alt="Besnik." />
-            </a>
-
-            <!-- Navigation -->
-            <ul id="mobile-nav">
-                <script>
-                    const pcNav = document.querySelector("#pc-nav");
-                    const mobileNav = document.querySelector("#mobile-nav");
-
-                    // Copy from PC nav -> mobile nav
-                    mobileNav.innerHTML = pcNav.innerHTML;
-                </script>
-            </ul>
-        </div>
-    </header>
-
     <main>
-        <!-- Hero -->
         <div class="hero-wrap">
+            <!-- class content là class dùng chung cho các trang -->
+            <!-- class content dùng để giới hạn độ rộng của trang web -->
             <div class="content">
+                <!-- hero-wrap có 2 phần chính info (bên trái) + hero-img (bên phải) -->
                 <div class="info">
                     <p class="sub-title">Welcome to Besnik Agency</p>
-                    <h1 class="title">
-                        Discover a place you'll love to live.
-                    </h1>
+                    <h1 class="title">Discover a place you'll love to live.</h1>
                     <p class="desc">
-                        Get the best real estate deals first, before they
-                        hit the mass market! HOT FORECLOSURE DEALS with one
-                        simple search
-=======
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Project 01</title>
-        <!-- Tại sao không dùng đường dẫn tuyệt đối mà dùng đường dẫn tương đối -->
-        <!-- Vì dùng đường dẫn tuyệt đối sẽ cần phải bật máy chủ web (bật live server) -->
-        <!-- Khi không dùng live server mà chỉ cần mở chrome thì dùng tương đối -->
-        <link rel="stylesheet" href="./assets/css/reset.css" />
-        <!-- Chuyển đổi đuôi font otf sang woff/ woff2 -->
-        <link rel="stylesheet" href="./assets/fonts/stylesheet.css" />
-        <link rel="stylesheet" href="./assets/css/styles.css" />
-        <!-- Nhúng font lato -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet" />
-        <!-- Favicon -->
-        <link rel="apple-touch-icon" sizes="57x57" href="./assets/favicon/apple-icon-57x57.png" />
-        <link rel="apple-touch-icon" sizes="60x60" href="./assets/favicon/apple-icon-60x60.png" />
-        <link rel="apple-touch-icon" sizes="72x72" href="./assets/favicon/apple-icon-72x72.png" />
-        <link rel="apple-touch-icon" sizes="76x76" href="./assets/favicon/apple-icon-76x76.png" />
-        <link rel="apple-touch-icon" sizes="114x114" href="./assets/favicon/apple-icon-114x114.png" />
-        <link rel="apple-touch-icon" sizes="120x120" href="./assets/favicon/apple-icon-120x120.png" />
-        <link rel="apple-touch-icon" sizes="144x144" href="./assets/favicon/apple-icon-144x144.png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="./assets/favicon/apple-icon-152x152.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-icon-180x180.png" />
-        <link rel="icon" type="image/png" sizes="192x192" href="./assets/favicon/android-icon-192x192.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="96x96" href="./assets/favicon/favicon-96x96.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png" />
-        <!-- thêm nữa là vào file .json để sửa lại đường dẫn -->
-        <!-- trong file json này phải dùng đường dẫn tuyệt đối nhé -->
-        <!-- chức năng của file manifest.json -->
-        <!-- khi trang web được lưu bằng điện thoại android -->
-        <!-- thì manifest sẽ chọn ra favicon nào phù hợp -->
-        <!-- để làm biểu tượng đại diện cho trang web -->
-        <link rel="manifest" href="./assets/favicon/manifest.json" />
-        <meta name="msapplication-TileColor" content="#ffffff" />
-        <!-- nhớ sửa đường dẫn ở phía dưới này nữa nè -->
-        <meta name="msapplication-TileImage" content="./assets/favicon/ms-icon-144x144.png" />
-        <meta name="theme-color" content="#ffffff" />
-    </head>
-    <body>
-        <!-- Thẻ main mang ý nghĩa chứa nội dung chính của trang -->
-        <!-- Header -->
-        <!-- class header là thẻ dành cho trang đầu tiên hoặc phần đầu của một trang web -->
-        <!-- header chứa 2 phần chính, dòng đầu tiên là navbar, còn lại là hero -->
-        <!-- navbar chứa logo Besnik, list options, sign in/sign up -->
-
-        <!-- hero chứa phần còn lại -->
-        <header class="fixed-header">
-            <div class="content">
-                <nav class="navbar">
-                    <!-- Logo -->
-                    <a href="#"><img src="./assets/img/logo.png" alt="Besnik." /></a>
-                    <!-- Navigation -->
-                    <ul>
-                        <li>
-                            <a href="#">Home</a>
-                        </li>
-                        <li>
-                            <a href="#service">Service</a>
-                        </li>
-                        <li>
-                            <a href="#features">Features</a>
-                        </li>
-                        <li>
-                            <a href="#resources">Resources</a>
-                        </li>
-                        <li>
-                            <a href="#contact">Contact</a>
-                        </li>
-                    </ul>
-                    <!-- Action -->
-                    <div class="actions">
-                        <a href="#!" class="action-link">Sign in</a>
-                        <!-- class btn là class nút dùng chung -->
-                        <!-- action-btn là custome riêng cho một nút -->
-                        <a href="#!" class="btn action-btn">Sign up</a>
-                    </div>
-                </nav>
-            </div>
-        </header>
-        <main>
-            <div class="hero-wrap">
-                <!-- class content là class dùng chung cho các trang -->
-                <!-- class content dùng để giới hạn độ rộng của trang web -->
-                <div class="content">
-                    <!-- hero-wrap có 2 phần chính info (bên trái) + hero-img (bên phải) -->
-                    <div class="info">
-                        <p class="sub-title">Welcome to Besnik Agency</p>
-                        <h1 class="title">Discover a place you'll love to live.</h1>
-                        <p class="desc">
-                            Get the best real estate deals first, before they hit the mass market! hot foreclosure deals
-                            with one simple search.
-                        </p>
-                        <!-- cta: call to action -->
-                        <a href="" class="btn hero-cta">More About Us</a>
-                    </div>
-                    <!-- Ảnh đi kèm với tiêu đề -->
-                    <!-- Thì alt chính là tiêu đề -->
-                    <img src="./assets/img/hero-img.svg" alt="Discover a place you'll love to live." class="hero-img" />
-                </div>
-            </div>
-
-            <!-- Client -->
-            <div class="clients">
-                <div class="content">
-                    <div class="row">
-                        <!-- Logo -->
-                        <img src="./assets/img/logo.png" alt="Besnik." />
-                        <div class="stars">
-                            <img src="./assets/img/star.svg" alt="star" />
-                        </div>
-                    </div>
-                    <!-- Phía trên đã có row, việc đặt trùng tên như này -->
-                    <!-- đỡ phải css lần 2 flex space between -->
-                    <div class="row row-desc">
-                        <p class="desc">More than 45,000+ companies trust besnik</p>
-                        <p class="desc">5 Star Ratings (2k+ Review)</p>
-                    </div>
-                    <div class="images">
-                        <a href="#!">
-                            <img src="./assets/img/client-1.svg" alt="MeUndies" />
-                        </a>
-                        <a href="#!">
-                            <img src="./assets/img/client-2.svg" alt="Slack" />
-                        </a>
-                        <a href="#!">
-                            <img src="./assets/img/client-3.svg" alt="Amazon" />
-                        </a>
-                        <a href="#!">
-                            <img src="./assets/img/client-4.svg" alt="WooCommerce" />
-                        </a>
-                        <a href="#!">
-                            <img src="./assets/img/client-5.svg" alt="Sitepoint" />
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Guides -->
-            <div class="guides" id="service">
-                <div class="content">
-                    <h2 class="sub-title">How its works?</h2>
-                    <p class="desc">
-                        Everything you need to know when you're looking to buy, rent, or sell - all in one place.
->>>>>>> 80f9a9066f040d8f969692a6080b62a3ce91f83f
+                        Get the best real estate deals first, before they hit the mass market! hot foreclosure deals
+                        with one simple search.
                     </p>
-                    <a href="#!" class="btn hero-cta">More About Us</a>
+                    <!-- cta: call to action -->
+                    <a href="" class="btn hero-cta">More About Us</a>
                 </div>
-
-<<<<<<< HEAD
+                <!-- Ảnh đi kèm với tiêu đề -->
+                <!-- Thì alt chính là tiêu đề -->
                 <img src="./assets/img/hero-img.svg" alt="Discover a place you'll love to live." class="hero-img" />
             </div>
         </div>
 
-        <!-- Clients -->
+        <!-- Client -->
         <div class="clients">
             <div class="content">
                 <div class="row">
                     <!-- Logo -->
-                    <img src="./assets/img/logo.svg" alt="Besnik." />
-
-                    <!-- Stars -->
+                    <img src="./assets/img/logo.png" alt="Besnik." />
                     <div class="stars">
-                        <img src="./assets/img/star.svg" alt="Star" />
-                        <img src="./assets/img/star.svg" alt="Star" />
-                        <img src="./assets/img/star.svg" alt="Star" />
-                        <img src="./assets/img/star.svg" alt="Star" />
-                        <img src="./assets/img/star.svg" alt="Star" />
+                        <img src="./assets/img/star.svg" alt="star" />
                     </div>
                 </div>
+                <!-- Phía trên đã có row, việc đặt trùng tên như này -->
+                <!-- đỡ phải css lần 2 flex space between -->
                 <div class="row row-desc">
-                    <p class="desc">
-                        More than 45,000+ companies trust besnik
-                    </p>
+                    <p class="desc">More than 45,000+ companies trust besnik</p>
                     <p class="desc">5 Star Ratings (2k+ Review)</p>
                 </div>
                 <div class="images">
                     <a href="#!">
-                        <img src="./assets/img/client-1.svg" alt="Client 1" />
+                        <img src="./assets/img/client-1.svg" alt="MeUndies" />
                     </a>
                     <a href="#!">
-                        <img src="./assets/img/client-2.svg" alt="Client 2" />
+                        <img src="./assets/img/client-2.svg" alt="Slack" />
                     </a>
                     <a href="#!">
-                        <img src="./assets/img/client-3.svg" alt="Client 3" />
+                        <img src="./assets/img/client-3.svg" alt="Amazon" />
                     </a>
                     <a href="#!">
-                        <img src="./assets/img/client-4.svg" alt="Client 4" />
+                        <img src="./assets/img/client-4.svg" alt="WooCommerce" />
                     </a>
                     <a href="#!">
-                        <img src="./assets/img/client-5.svg" alt="Client 5" />
+                        <img src="./assets/img/client-5.svg" alt="Sitepoint" />
                     </a>
                 </div>
             </div>
         </div>
 
         <!-- Guides -->
-        <div id="services" class="guides">
+        <div class="guides" id="service">
             <div class="content">
                 <h2 class="sub-title">How its works?</h2>
                 <p class="desc">
-                    Everything you need to know when you're looking to buy,
-                    rent, or sell - all in one place.
+                    Everything you need to know when you're looking to buy, rent, or sell - all in one place.
                 </p>
 
                 <!-- List guide -->
                 <ul class="list-guide">
                     <li class="guide-item">
-                        <img src="./assets/img/buyer.svg" alt="Buyer" class="icon" />
+                        <img src="./assets/img/buyer.svg" alt="Buyer Guides" class="icon" />
                         <h3 class="title">Buyer Guides</h3>
-                        <a href="#!" class="link">
-                            <span>How to buy</span>
-                            <img src="./assets/img/arrow-right.svg" alt="Arrow right" class="arrow" />
-                        </a>
+                        <a href="#!" class="link"><span>How to buy</span>
+                            <img src="./assets/img/arrow-right.svg" alt="arrow-right" class="arrow" /></a>
                     </li>
                     <li class="guide-item">
-                        <img src="./assets/img/rent.svg" alt="Renter" class="icon" />
+                        <img src="./assets/img/renter.svg" alt="Renter Guides" class="icon" />
                         <h3 class="title">Renter Guides</h3>
-                        <a href="#!" class="link">
-                            <span>How to rent</span>
-                            <img src="./assets/img/arrow-right.svg" alt="Arrow right" class="arrow" />
-                        </a>
+                        <a href="#!" class="link"><span>How to rent</span>
+                            <img src="./assets/img/arrow-right.svg" alt="arrow-right" class="arrow" /></a>
                     </li>
                     <li class="guide-item">
-                        <img src="./assets/img/sell.svg" alt="Seller" class="icon" />
+                        <img src="./assets/img/seller.svg" alt="Seller Guides" class="icon" />
                         <h3 class="title">Seller Guides</h3>
-                        <a href="#!" class="link">
-                            <span>How to sell</span>
-                            <img src="./assets/img/arrow-right.svg" alt="Arrow right" class="arrow" />
-                        </a>
+                        <a href="#!" class="link"><span>How to sell</span>
+                            <img src="./assets/img/arrow-right.svg" alt="arrow-right" class="arrow" /></a>
                     </li>
                 </ul>
 
@@ -363,35 +178,30 @@
             </div>
         </div>
 
-        <!-- Featured -->
-        <div id="features" class="featured">
+        <!-- Featured Properties -->
+        <div class="featured" id="features">
             <div class="content">
                 <header>
                     <h2 class="sub-title">Featured Properties</h2>
                     <div class="row">
-                        <p class="desc">
-                            Everything you need to know when you're looking
-                        </p>
-                        <a href="#!" class="link">
-                            <span>View All Properties</span>
-                            <img src="./assets/img/arrow-right.svg" alt="Arrow right" class="arrow" />
-                        </a>
+                        <p class="desc">Everything you need to know when you're looking</p>
+                        <a href="#!" class="link"><span>View All Properties</span>
+                            <img src="./assets/img/arrow-right.svg" alt="arrow right" class="arrow" /></a>
                     </div>
                 </header>
 
                 <div class="list">
-                    <!-- Featured item 1 -->
+                    <!-- Featured Item 1 -->
                     <div class="item">
-                        <a href="#!">
-                            <img src="assets/img/feature-1.jpg" alt="Nikko Apartments" class="thumb" />
-                        </a>
+                        <!-- Đối với các ảnh chụp thì không nên xuất svg -->
+                        <!-- vì xuất svg ra đúng kích thước hình ảnh bản thiết kế-->
+                        <!-- nên lên unplash lấy các hình có kích thước khác -->
+                        <!-- để tập chỉnh kích thước -->
+                        <!-- class thumb viết tắt thumbnail là ảnh thu nhỏ -->
+                        <a href="#!"><img src="./assets/img/picture-1.jpg" alt="Nikko Apartments" class="thumb" /></a>
                         <div class="body">
-                            <h3 class="title">
-                                <a href="#!">Nikko Apartments</a>
-                            </h3>
-                            <p class="desc">
-                                8502 Preston Rd. Inglewood, Maine 98280
-                            </p>
+                            <h3 class="title"><a href="#!" class="line-clamp">Nikko Apartments</a></h3>
+                            <p class="desc line-clamp">8502 Preston Rd. Inglewood, Maine 98280</p>
                             <div class="info">
                                 <img src="./assets/img/beds.svg" alt="" class="icon" />
                                 <span class="label">5 Beds</span>
@@ -404,19 +214,19 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Featured item 2 -->
+                    <!-- Feature Item 2 -->
                     <div class="item">
-                        <a href="#!">
-                            <img src="./assets/img/feature-2.jpg" alt="CouCou Homestead" class="thumb" />
-                        </a>
+                        <!-- Đối với các ảnh chụp thì không nên xuất svg -->
+                        <!-- vì xuất svg ra đúng kích thước hình ảnh bản thiết kế-->
+                        <!-- nên lên unplash lấy các hình có kích thước khác -->
+                        <!-- để tập chỉnh kích thước -->
+                        <!-- class thumb viết tắt thumbnail là ảnh thu nhỏ -->
+                        <a href="#!"><img src="./assets/img/picture-2.jpg" alt="CouCou Homestead" class="thumb" /></a>
                         <div class="body">
                             <h3 class="title">
                                 <a href="#!" class="line-clamp">CouCou Homestead</a>
                             </h3>
-                            <p class="desc line-clamp" style="--line-clamp: 3">
-                                8502 Preston Rd. Inglewood, Maine 98280
-                            </p>
+                            <p class="desc line-clamp">8502 Preston Rd. Inglewood, Maine 98280</p>
                             <div class="info">
                                 <img src="./assets/img/beds.svg" alt="" class="icon" />
                                 <span class="label">5 Beds</span>
@@ -429,19 +239,17 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Featured item 3 -->
+                    <!-- Featured Item 3 -->
                     <div class="item">
-                        <a href="#!">
-                            <img src="./assets/img/feature-3.jpg" alt="CouCou Homestead" class="thumb" />
-                        </a>
+                        <!-- Đối với các ảnh chụp thì không nên xuất svg -->
+                        <!-- vì xuất svg ra đúng kích thước hình ảnh bản thiết kế-->
+                        <!-- nên lên unplash lấy các hình có kích thước khác -->
+                        <!-- để tập chỉnh kích thước -->
+                        <!-- class thumb viết tắt thumbnail là ảnh thu nhỏ -->
+                        <a href="#!"><img src="./assets/img/picture-3.jpg" alt="Lavis 18 Residence" class="thumb" /></a>
                         <div class="body">
-                            <h3 class="title">
-                                <a href="#!">Lavisxxxx 18 Residence</a>
-                            </h3>
-                            <p class="desc">
-                                8502 Preston Rd. Inglewood, Maine 98280
-                            </p>
+                            <h3 class="title"><a href="#!" class="line-clamp">Lavis 18 Residence</a></h3>
+                            <p class="desc line-clamp">8502 Preston Rd. Inglewood, Maine 98280</p>
                             <div class="info">
                                 <img src="./assets/img/beds.svg" alt="" class="icon" />
                                 <span class="label">5 Beds</span>
@@ -459,53 +267,124 @@
         </div>
 
         <!-- Stats -->
-        <div class="stats">
+        <div class="stats" id="resources">
             <div class="content">
                 <div class="row">
                     <div class="img-block">
-                        <img class="image" loading="lazy" src="./assets/img/stats-img.jpg"
+                        <img class="image" src="./assets/img/stats-img.jpg"
                             alt="You’ve found a neighborhood you love." />
+                        <!-- Trend -->
                         <div class="stats-trend">
                             <div class="row">
-                                <strong class="value"> 40,000+ </strong>
-                                <img src="./assets/img/arrow-trend-up.svg" alt="" class="icon" />
+                                <strong class="value">40,000 +</strong>
+                                <!-- Khi một ảnh svg tải từ figma -->
+                                <!-- Mà ảnh bị lớn hơn hoặc nhỏ hơn so với ảnh gốc -->
+                                <!-- Chứng tỏ là code phía trước của mình đã can thiệp CSS vào ảnh -->
+                                <img src="./assets/img/arrow-trend-up.svg" alt="arrow-trend-up" class="icon" />
                             </div>
-                            <p class="desc">
-                                By avarage for 2 bedroom apments in San
-                                Francisco, CA
-                            </p>
-                            <div class="separate"></div>
+                            <p class="desc">By avarage for 2 bedroom apments in San Francisco, CA</p>
+                            <div class="seperate"></div>
+                            <!-- Vào trang UI Faces để tải các ảnh dạng avatar -->
                             <div class="avatar-block">
                                 <div class="avatar-group">
-                                    <img src="./assets/img/avatar-1.jpg" alt="" class="avatar" />
-                                    <img src="./assets/img/avatar-2.jpg" alt="" class="avatar" />
+                                    <img src="./assets/img/avatar-1.webp" alt="" class="avatar" />
+                                    <img src="./assets/img/avatar-2.jpeg" alt="" class="avatar" />
+                                    <img src="./assets/img/avatar-3.jpg" alt="" class="avatar" />
+                                </div>
+                                <div class="avatar-group">
+                                    <img src="./assets/img/avatar-3.jpg" alt="" class="avatar" />
+                                    <!-- Khi người dùng không có avatar -->
+                                    <!-- Sẽ tạo màu nền ngẫu nhiên + chữ cái -->
+                                    <!-- Thẻ div phía dưới thể hiện điều này -->
+                                    <div class="avatar">T</div>
+                                    <img src="./assets/img/avatar-5.jpg" alt="" class="avatar" />
+                                    <div class="avatar" style="--bg-color: #24d6d9">TT</div>
+                                </div>
+                                <div class="avatar-group">
+                                    <img src="./assets/img/avatar-1.webp" alt="" class="avatar" />
+                                    <img src="./assets/img/avatar-6.jpeg" alt="" class="avatar" />
+                                </div>
+                                <div class="avatar-group">
+                                    <div class="avatar" style="--bg-color: #f97f6b">N</div>
+                                    <img src="./assets/img/avatar-2.jpeg" alt="" class="avatar" />
+                                    <img src="./assets/img/avatar-5.jpg" alt="" class="avatar" />
+                                    <div class="avatar" style="--bg-color: #f8c120">K</div>
+                                </div>
+                                <div class="avatar-group">
+                                    <img src="./assets/img/avatar-1.webp" alt="" class="avatar" />
+                                    <img src="./assets/img/avatar-2.jpeg" alt="" class="avatar" />
+                                </div>
+                                <div class="avatar-group">
+                                    <img src="./assets/img/avatar-4.jpg" alt="" class="avatar" />
+                                    <img src="./assets/img/avatar-5.jpg" alt="" class="avatar" />
+                                </div>
+                                <div class="avatar-group">
+                                    <img src="./assets/img/avatar-1.webp" alt="" class="avatar" />
+                                    <div class="avatar" style="--bg-color: #1f3bb0">D</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="info">
-                        <h2 class="sub-title">
-                            You’ve found a neighborhood you love.
-                        </h2>
+                        <h2 class="sub-title">You’ve found a neighborhood you love.</h2>
                         <div class="desc">
-                            When you own a home, you’re committing to living
-                            in one location for a while. In a recent Trulia
-                            survey, we found that five out of six
-                            respondents said finding the right neighborhood
+                            When you own a home, you’re committing to living in one location for a while. In a
+                            recent Trulia survey, we found that five out of six respondents said finding the right
+                            neighborhood
                         </div>
+                    </div>
+                </div>
+
+                <div class="row row-qty">
+                    <!-- qty: viết tắt quantity (số lượng) -->
+                    <div class="qty-item">
+                        <strong class="qty">2,500</strong>
+                        <p class="desc">Homes For Sale</p>
+                    </div>
+                    <div class="qty-item">
+                        <strong class="qty">5,000+</strong>
+                        <p class="desc">Homes Recently Sold</p>
+                    </div>
+                    <div class="qty-item">
+                        <strong class="qty">170+</strong>
+                        <p class="desc">Price Reduced</p>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Subscription -->
-    </main>
 
+        <!-- Subscription -->
+        <div class="subscription" id="contact">
+            <div class="content">
+                <div class="body">
+                    <div class="info">
+                        <h2 class="sub-title line-clamp">
+                            Subscribe to our Newsletter! Subscribe to our Newsletter! Subscribe to our Newsletter!
+                            Subscribe to our Newsletter!
+                        </h2>
+                        <p class="desc line-clamp" style="--line-clamp: 3">
+                            Subscribe to our newsletter and stay updated. Subscribe to our Newsletter! Subscribe to
+                            our Newsletter! Subscribe to our Newsletter! Subscribe to our Newsletter! Subscribe to
+                            our Newsletter! Subscribe to our Newsletter! Subscribe to our Newsletter!
+                        </p>
+                        <a href="#!" class="btn">Subscribe</a>
+                    </div>
+                    <img src="./assets/img/newletter.svg" alt="Subscribe to our Newsletter!" class="image" />
+                </div>
+            </div>
+        </div>
+    </main>
     <!-- Footer -->
     <footer class="footer">
         <div class="content">
             <div class="row row-top">
-                <!-- Product column -->
-                <div class="column">
+                <div class="col">
+                    <!-- Dùng h3 không phải h2 -->
+                    <!-- Đáng lẽ là dùng h2 -->
+                    <!-- Để tối ưu SEO -->
+                    <!-- thì các nội dung này không quan trọng -->
+                    <!-- bằng các h2 phía trước -->
+                    <!-- nên đặt đây là h3 -->
                     <h3 class="heading">Product</h3>
                     <ul class="list">
                         <li class="item">
@@ -519,392 +398,59 @@
                         </li>
                         <li class="item">
                             <a href="#!">Blog</a>
-=======
-                    <!-- List guide -->
-                    <ul class="list-guide">
-                        <li class="guide-item">
-                            <img src="./assets/img/buyer.svg" alt="Buyer Guides" class="icon" />
-                            <h3 class="title">Buyer Guides</h3>
-                            <a href="#!" class="link"
-                                ><span>How to buy</span>
-                                <img src="./assets/img/arrow-right.svg" alt="arrow-right" class="arrow"
-                            /></a>
-                        </li>
-                        <li class="guide-item">
-                            <img src="./assets/img/renter.svg" alt="Renter Guides" class="icon" />
-                            <h3 class="title">Renter Guides</h3>
-                            <a href="#!" class="link"
-                                ><span>How to rent</span>
-                                <img src="./assets/img/arrow-right.svg" alt="arrow-right" class="arrow"
-                            /></a>
-                        </li>
-                        <li class="guide-item">
-                            <img src="./assets/img/seller.svg" alt="Seller Guides" class="icon" />
-                            <h3 class="title">Seller Guides</h3>
-                            <a href="#!" class="link"
-                                ><span>How to sell</span>
-                                <img src="./assets/img/arrow-right.svg" alt="arrow-right" class="arrow"
-                            /></a>
->>>>>>> 80f9a9066f040d8f969692a6080b62a3ce91f83f
                         </li>
                     </ul>
                 </div>
-
-                <!-- Resources column -->
-                <div class="column">
+                <div class="col">
                     <h3 class="heading">Resources</h3>
                     <ul class="list">
                         <li class="item">
-                            <a href="#!">Our Homes</a>
+                            <a href="">Our Homes</a>
                         </li>
                         <li class="item">
-                            <a href="#!">Member Stories</a>
+                            <a href="">Member Stories</a>
                         </li>
                         <li class="item">
-                            <a href="#!">Video</a>
+                            <a href="">Video</a>
                         </li>
                         <li class="item">
-                            <a href="#!">Free trial</a>
+                            <a href="">Free trial</a>
                         </li>
                     </ul>
                 </div>
-
-                <!-- Company column -->
-                <div class="column">
+                <div class="col">
                     <h3 class="heading">Company</h3>
                     <ul class="list">
                         <li class="item">
-                            <a href="#!">Patnerships</a>
+                            <a href="">Patnerships</a>
                         </li>
                         <li class="item">
-                            <a href="#!">Terms of use</a>
+                            <a href="">Terms of use</a>
                         </li>
                         <li class="item">
-                            <a href="#!">Privacy</a>
+                            <a href="">Privacy</a>
                         </li>
                         <li class="item">
-                            <a href="#!">Sitemap</a>
+                            <a href="">Sitemap</a>
                         </li>
                     </ul>
                 </div>
-
-                <!-- Get in touch column -->
-                <div class="column">
+                <div class="col">
                     <h3 class="heading">Get in touch</h3>
-                    <p class="desc">
-                        You’ll find your next home, in any style you prefer.
-                    </p>
+                    <p class="desc">You’ll find your next home, in any style you prefer.</p>
                     <div class="social">
                         <a href="#!" class="social-link">
-                            <img src="./assets/img/facebook.svg" alt="" />
-                        </a>
-                        <a href="#!" class="social-link">
-                            <img src="./assets/img/twitter.svg" alt="" />
-                        </a>
-                        <a href="#!" class="social-link">
-                            <img src="./assets/img/linkedin.svg" alt="" />
+                            <img src="./assets/img/social icon.svg" alt="" />
                         </a>
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
             <div class="row row-bottom">
-                <img src="./assets/img/logo.svg" alt="Besnik." class="logo" />
-                <p class="copyright">
-                    Copyright 2020.com, All rights reserved.
-                </p>
-=======
-
-            <!-- Featured Properties -->
-            <div class="featured" id="features">
-                <div class="content">
-                    <header>
-                        <h2 class="sub-title">Featured Properties</h2>
-                        <div class="row">
-                            <p class="desc">Everything you need to know when you're looking</p>
-                            <a href="#!" class="link"
-                                ><span>View All Properties</span>
-                                <img src="./assets/img/arrow-right.svg" alt="arrow right" class="arrow"
-                            /></a>
-                        </div>
-                    </header>
-
-                    <div class="list">
-                        <!-- Featured Item 1 -->
-                        <div class="item">
-                            <!-- Đối với các ảnh chụp thì không nên xuất svg -->
-                            <!-- vì xuất svg ra đúng kích thước hình ảnh bản thiết kế-->
-                            <!-- nên lên unplash lấy các hình có kích thước khác -->
-                            <!-- để tập chỉnh kích thước -->
-                            <!-- class thumb viết tắt thumbnail là ảnh thu nhỏ -->
-                            <a href="#!"
-                                ><img src="./assets/img/picture-1.jpg" alt="Nikko Apartments" class="thumb"
-                            /></a>
-                            <div class="body">
-                                <h3 class="title"><a href="#!" class="line-clamp">Nikko Apartments</a></h3>
-                                <p class="desc line-clamp">8502 Preston Rd. Inglewood, Maine 98280</p>
-                                <div class="info">
-                                    <img src="./assets/img/beds.svg" alt="" class="icon" />
-                                    <span class="label">5 Beds</span>
-
-                                    <img src="./assets/img/both.svg" alt="" class="icon" />
-                                    <span class="label">2 both</span>
-
-                                    <img src="./assets/img/sqft.svg" alt="" class="icon" />
-                                    <span class="label">2000 Sqft</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Feature Item 2 -->
-                        <div class="item">
-                            <!-- Đối với các ảnh chụp thì không nên xuất svg -->
-                            <!-- vì xuất svg ra đúng kích thước hình ảnh bản thiết kế-->
-                            <!-- nên lên unplash lấy các hình có kích thước khác -->
-                            <!-- để tập chỉnh kích thước -->
-                            <!-- class thumb viết tắt thumbnail là ảnh thu nhỏ -->
-                            <a href="#!"
-                                ><img src="./assets/img/picture-2.jpg" alt="CouCou Homestead" class="thumb"
-                            /></a>
-                            <div class="body">
-                                <h3 class="title">
-                                    <a href="#!" class="line-clamp">CouCou Homestead</a>
-                                </h3>
-                                <p class="desc line-clamp">8502 Preston Rd. Inglewood, Maine 98280</p>
-                                <div class="info">
-                                    <img src="./assets/img/beds.svg" alt="" class="icon" />
-                                    <span class="label">5 Beds</span>
-
-                                    <img src="./assets/img/both.svg" alt="" class="icon" />
-                                    <span class="label">2 both</span>
-
-                                    <img src="./assets/img/sqft.svg" alt="" class="icon" />
-                                    <span class="label">2000 Sqft</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Featured Item 3 -->
-                        <div class="item">
-                            <!-- Đối với các ảnh chụp thì không nên xuất svg -->
-                            <!-- vì xuất svg ra đúng kích thước hình ảnh bản thiết kế-->
-                            <!-- nên lên unplash lấy các hình có kích thước khác -->
-                            <!-- để tập chỉnh kích thước -->
-                            <!-- class thumb viết tắt thumbnail là ảnh thu nhỏ -->
-                            <a href="#!"
-                                ><img src="./assets/img/picture-3.jpg" alt="Lavis 18 Residence" class="thumb"
-                            /></a>
-                            <div class="body">
-                                <h3 class="title"><a href="#!" class="line-clamp">Lavis 18 Residence</a></h3>
-                                <p class="desc line-clamp">8502 Preston Rd. Inglewood, Maine 98280</p>
-                                <div class="info">
-                                    <img src="./assets/img/beds.svg" alt="" class="icon" />
-                                    <span class="label">5 Beds</span>
-
-                                    <img src="./assets/img/both.svg" alt="" class="icon" />
-                                    <span class="label">2 both</span>
-
-                                    <img src="./assets/img/sqft.svg" alt="" class="icon" />
-                                    <span class="label">2000 Sqft</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
->>>>>>> 80f9a9066f040d8f969692a6080b62a3ce91f83f
+                <img src="./assets/img/logo.png" alt="Besnik." class="logo" />
+                <p class="copyright">Copyright 2020.com, All rights reserved.</p>
             </div>
         </div>
     </footer>
 </body>
 
-<<<<<<< HEAD
 </html>
-=======
-            <!-- Stats -->
-            <div class="stats" id="resources">
-                <div class="content">
-                    <div class="row">
-                        <div class="img-block">
-                            <img
-                                class="image"
-                                src="./assets/img/stats-img.jpg"
-                                alt="You’ve found a neighborhood you love." />
-                            <!-- Trend -->
-                            <div class="stats-trend">
-                                <div class="row">
-                                    <strong class="value">40,000 +</strong>
-                                    <!-- Khi một ảnh svg tải từ figma -->
-                                    <!-- Mà ảnh bị lớn hơn hoặc nhỏ hơn so với ảnh gốc -->
-                                    <!-- Chứng tỏ là code phía trước của mình đã can thiệp CSS vào ảnh -->
-                                    <img src="./assets/img/arrow-trend-up.svg" alt="arrow-trend-up" class="icon" />
-                                </div>
-                                <p class="desc">By avarage for 2 bedroom apments in San Francisco, CA</p>
-                                <div class="seperate"></div>
-                                <!-- Vào trang UI Faces để tải các ảnh dạng avatar -->
-                                <div class="avatar-block">
-                                    <div class="avatar-group">
-                                        <img src="./assets/img/avatar-1.webp" alt="" class="avatar" />
-                                        <img src="./assets/img/avatar-2.jpeg" alt="" class="avatar" />
-                                        <img src="./assets/img/avatar-3.jpg" alt="" class="avatar" />
-                                    </div>
-                                    <div class="avatar-group">
-                                        <img src="./assets/img/avatar-3.jpg" alt="" class="avatar" />
-                                        <!-- Khi người dùng không có avatar -->
-                                        <!-- Sẽ tạo màu nền ngẫu nhiên + chữ cái -->
-                                        <!-- Thẻ div phía dưới thể hiện điều này -->
-                                        <div class="avatar">T</div>
-                                        <img src="./assets/img/avatar-5.jpg" alt="" class="avatar" />
-                                        <div class="avatar" style="--bg-color: #24d6d9">TT</div>
-                                    </div>
-                                    <div class="avatar-group">
-                                        <img src="./assets/img/avatar-1.webp" alt="" class="avatar" />
-                                        <img src="./assets/img/avatar-6.jpeg" alt="" class="avatar" />
-                                    </div>
-                                    <div class="avatar-group">
-                                        <div class="avatar" style="--bg-color: #f97f6b">N</div>
-                                        <img src="./assets/img/avatar-2.jpeg" alt="" class="avatar" />
-                                        <img src="./assets/img/avatar-5.jpg" alt="" class="avatar" />
-                                        <div class="avatar" style="--bg-color: #f8c120">K</div>
-                                    </div>
-                                    <div class="avatar-group">
-                                        <img src="./assets/img/avatar-1.webp" alt="" class="avatar" />
-                                        <img src="./assets/img/avatar-2.jpeg" alt="" class="avatar" />
-                                    </div>
-                                    <div class="avatar-group">
-                                        <img src="./assets/img/avatar-4.jpg" alt="" class="avatar" />
-                                        <img src="./assets/img/avatar-5.jpg" alt="" class="avatar" />
-                                    </div>
-                                    <div class="avatar-group">
-                                        <img src="./assets/img/avatar-1.webp" alt="" class="avatar" />
-                                        <div class="avatar" style="--bg-color: #1f3bb0">D</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="info">
-                            <h2 class="sub-title">You’ve found a neighborhood you love.</h2>
-                            <div class="desc">
-                                When you own a home, you’re committing to living in one location for a while. In a
-                                recent Trulia survey, we found that five out of six respondents said finding the right
-                                neighborhood
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row row-qty">
-                        <!-- qty: viết tắt quantity (số lượng) -->
-                        <div class="qty-item">
-                            <strong class="qty">2,500</strong>
-                            <p class="desc">Homes For Sale</p>
-                        </div>
-                        <div class="qty-item">
-                            <strong class="qty">5,000+</strong>
-                            <p class="desc">Homes Recently Sold</p>
-                        </div>
-                        <div class="qty-item">
-                            <strong class="qty">170+</strong>
-                            <p class="desc">Price Reduced</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Subscription -->
-            <div class="subscription" id="contact">
-                <div class="content">
-                    <div class="body">
-                        <div class="info">
-                            <h2 class="sub-title line-clamp">
-                                Subscribe to our Newsletter! Subscribe to our Newsletter! Subscribe to our Newsletter!
-                                Subscribe to our Newsletter!
-                            </h2>
-                            <p class="desc line-clamp" style="--line-clamp: 3">
-                                Subscribe to our newsletter and stay updated. Subscribe to our Newsletter! Subscribe to
-                                our Newsletter! Subscribe to our Newsletter! Subscribe to our Newsletter! Subscribe to
-                                our Newsletter! Subscribe to our Newsletter! Subscribe to our Newsletter!
-                            </p>
-                            <a href="#!" class="btn">Subscribe</a>
-                        </div>
-                        <img src="./assets/img/newletter.svg" alt="Subscribe to our Newsletter!" class="image" />
-                    </div>
-                </div>
-            </div>
-        </main>
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="content">
-                <div class="row row-top">
-                    <div class="col">
-                        <!-- Dùng h3 không phải h2 -->
-                        <!-- Đáng lẽ là dùng h2 -->
-                        <!-- Để tối ưu SEO -->
-                        <!-- thì các nội dung này không quan trọng -->
-                        <!-- bằng các h2 phía trước -->
-                        <!-- nên đặt đây là h3 -->
-                        <h3 class="heading">Product</h3>
-                        <ul class="list">
-                            <li class="item">
-                                <a href="#!">Listing</a>
-                            </li>
-                            <li class="item">
-                                <a href="#!">Property</a>
-                            </li>
-                            <li class="item">
-                                <a href="#!">Agents</a>
-                            </li>
-                            <li class="item">
-                                <a href="#!">Blog</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <h3 class="heading">Resources</h3>
-                        <ul class="list">
-                            <li class="item">
-                                <a href="">Our Homes</a>
-                            </li>
-                            <li class="item">
-                                <a href="">Member Stories</a>
-                            </li>
-                            <li class="item">
-                                <a href="">Video</a>
-                            </li>
-                            <li class="item">
-                                <a href="">Free trial</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <h3 class="heading">Company</h3>
-                        <ul class="list">
-                            <li class="item">
-                                <a href="">Patnerships</a>
-                            </li>
-                            <li class="item">
-                                <a href="">Terms of use</a>
-                            </li>
-                            <li class="item">
-                                <a href="">Privacy</a>
-                            </li>
-                            <li class="item">
-                                <a href="">Sitemap</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <h3 class="heading">Get in touch</h3>
-                        <p class="desc">You’ll find your next home, in any style you prefer.</p>
-                        <div class="social">
-                            <a href="#!" class="social-link">
-                                <img src="./assets/img/social icon.svg" alt="" />
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="row row-bottom">
-                    <img src="./assets/img/logo.png" alt="Besnik." class="logo" />
-                    <p class="copyright">Copyright 2020.com, All rights reserved.</p>
-                </div>
-            </div>
-        </footer>
-    </body>
-</html>
->>>>>>> 80f9a9066f040d8f969692a6080b62a3ce91f83f
